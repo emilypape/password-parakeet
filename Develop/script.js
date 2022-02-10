@@ -3,6 +3,8 @@
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+var resetBtn = document.querySelector("#reset");
+
 
 //function to generate a random numeric value
 var randomNumber = function(min, max) {
@@ -124,14 +126,25 @@ function generatePassword() {
   return password;
 }
 
-// Write password to the #password input
-function writePassword() {
+function resetButton() {
   var passwordText = document.querySelector("#password");
 
-  var password = generatePassword();
+  var password = '';
 
   passwordText.value = password;
 }
 
+// Write password to the #password input
+function writePassword() {
+  var passwordText = document.querySelector("#password");
+  
+  var password = generatePassword();
+  
+  passwordText.value = password;
+}
+
+
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+resetBtn.addEventListener("click", resetButton)
