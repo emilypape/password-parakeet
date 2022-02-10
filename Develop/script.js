@@ -8,22 +8,69 @@ var generateBtn = document.querySelector("#generate");
 function getPasswordData() {
   var passwordData = {
     length: 0,
+    fontCase: '',
+    number: false,
+    specialChar: false
   };
 
   // Prompts for password length until user gives a valid number
   while(true) {
-    var length = prompt('Enter a password length between 8 and 128');
+    var length = prompt('Choose a password length between 8 and 128');
     if (length >= 8 && length <= 128) {
       passwordData.length = length;
       break;
     }
     else {
-      prompt('Please pick a valid length')
+      alert('Please pick a valid length!')
     }
   }
 
+  //Prompt for case sensitivity until user gives a valid input
+  while(true) {
+    var fontCase = prompt('Would you like to include lower and uppercase letters? Please type UPPER, LOWER, or BOTH to choose.');
+    fontCase = fontCase.toLowerCase();
+    if (fontCase === 'upper' || fontCase === 'lower' || fontCase === 'both') {
+      passwordData.fontCase = fontCase;
+      break;
+    }
+    else {
+      alert('Please enter a valid response!');
+    }
+  } 
+
+  //Prompt for number inclusion until user gives a valid input
+  while(true) {
+    var number = prompt('Would you like to include numbers in your password? Type YES or NO.');
+    number = number.toLowerCase();
+    if (number === 'yes' || number === 'no') {
+      passwordData.number = number; 
+      break;
+    }
+    else {
+      alert('Please enter a valid response!');
+    }
+  }
+
+  //Prompt for special character inclusion until user gives a valid input
+  while(true) {
+    var specialChar = prompt('Would you like to include any special characters in your password? Type YES or NO.');
+    specialChar = specialChar.toLowerCase();
+    if (specialChar === 'yes' || specialChar === 'no') {
+      passwordData.specialChar = specialChar;
+      break;
+    }
+    else {
+      alert('Please enter a valid response!');
+    }
+  }
+  
+
+  
 
 
+
+
+  console.log(passwordData);
   return passwordData;
 };
 
