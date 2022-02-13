@@ -3,3 +3,6 @@
 *this is a random password generator that takes in parameters from the user to generate a random password based off of their choices
 
 ![screenshot](./Develop/images/screenshot.png)
+
+deployed application:
+https://emilypape.github.io/password-parakeet/
